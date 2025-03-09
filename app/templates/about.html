@@ -1,0 +1,65 @@
+<!-- templates/about.html -->
+
+{% extends "base.html" %}
+
+{% block title %}About - My Website{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1 class="display-4">About Us</h1>
+            <p class="lead">Learn more about our mission, vision, and team.</p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is to provide developers with powerful and easy-to-use tools to simplify their workflows.
+                Whether it's converting files to Base64 or exploring new technologies, we're here to help.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <h2>Our Vision</h2>
+            <p>
+                We envision a world where developers can focus on building amazing applications without worrying about
+                the small details. Our tools are designed to make your life easier.
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2>Meet the Team</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">John Doe</h5>
+                            <p class="card-text">Founder & CEO</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Jane Smith</h5>
+                            <p class="card-text">Lead Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Mike Johnson</h5>
+                            <p class="card-text">UI/UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

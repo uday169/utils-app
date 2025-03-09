@@ -1,0 +1,129 @@
+<!-- templates/base64.html -->
+
+{% extends "base.html" %}
+
+{% block title %}Base64 Converter - My Website{% endblock %}
+
+{% block extra_css %}
+<style>
+    .upload-section, .output-section {
+        height: 100%;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+    textarea {
+        width: 100%;
+        resize: none;
+    }
+    .btn-upload {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .section-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    /* Responsive height for the textarea */
+    .output-section textarea {
+        height: 300px; /* Default height */
+    }
+    @media (min-width: 768px) {
+        .output-section textarea {
+            height: 400px; /* Larger height for medium screens and above */
+        }
+    }
+    @media (min-width: 992px) {
+        .output-section textarea {
+            height: 500px; /* Even larger height for large screens */
+        }
+    }
+    /* Copy button styling */
+    .copy-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #007bff;
+        padding: 0;
+        margin-left: 10px;
+    }
+    .copy-button:hover {
+        color: #0056b3;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row h-100">
+        <!-- Left Half: File Upload Section -->
+        <div class="col-md-6">
+            <div class="upload-section">
+                <div class="section-title">Upload File</div>
+                <input type="file" class="form-control" id="fileInput">
+                <button class="btn btn-primary btn-upload" onclick="convertToBase64()">Convert to Base64</button>
+            </div>
+        </div>
+
+        <!-- Right Half: Base64 Output Section -->
+        <div class="col-md-6">
+            <div class="output-section">
+                <div class="section-title">
+                    Base64 Output
+                    <button class="copy-button" onclick="copyToClipboard()">
+                        <i class="fas fa-copy"></i> <!-- Font Awesome copy icon -->
+                    </button>
+                </div>
+                <textarea class="form-control" id="base64Output" readonly></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function convertToBase64() {
+        const fileInput = document.getElementById('fileInput');
+        const base64Output = document.getElementById('base64Output');
+
+        if (fileInput.files.length === 0) {
+            alert('Please select a file first.');
+            return;
+        }
+
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+            const base64 = event.target.result;
+            base64Output.value = base64;
+        };
+
+        reader.onerror = function (error) {
+            console.error('Error reading file:', error);
+            alert('An error occurred while reading the file.');
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    function copyToClipboard() {
+        const base64Output = document.getElementById('base64Output');
+        if (base64Output.value.trim() === "") {
+            alert("No Base64 output to copy.");
+            return;
+        }
+
+        base64Output.select(); // Select the text in the textarea
+        document.execCommand('copy'); // Copy the selected text
+        alert("Base64 output copied to clipboard!");
+    }
+</script>
+{% endblock %}
