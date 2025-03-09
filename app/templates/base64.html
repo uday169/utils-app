@@ -9,52 +9,62 @@
     .upload-section, .output-section {
         height: 100%;
         padding: 20px;
-        border: 1px solid #ddd;
+        border: 1px solid #E2E8F0; /* Light gray border */
         border-radius: 8px;
-        background-color: #f9f9f9;
+        background-color: #FFFFFF; /* White background */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     }
+    
     textarea {
         width: 100%;
         resize: none;
+        border: 1px solid #E2E8F0; /* Light gray border */
+        border-radius: 4px;
+        padding: 10px;
+        font-family: monospace; /* Monospace font for better readability of Base64 */
+        background-color: #F8FAFC; /* Very light gray background for textarea */
+        color: #1E293B; /* Dark blue-gray text */
     }
+    
     .btn-upload {
         width: 100%;
         margin-top: 10px;
+        background: linear-gradient(90deg, #1E3A8A, #6D28D9); /* Deep blue to purple gradient */
+        border: none;
+        color: #FFFFFF; /* White text */
+        font-weight: bold;
+        transition: background 0.3s ease; /* Smooth hover transition */
     }
+    
+    .btn-upload:hover {
+        background: linear-gradient(90deg, #6D28D9, #1E3A8A); /* Reverse gradient on hover */
+    }
+    
     .section-title {
         font-size: 1.2rem;
         font-weight: bold;
         margin-bottom: 15px;
-        color: #333;
+        color: #1E293B; /* Dark blue-gray text */
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
+    
     /* Responsive height for the textarea */
     .output-section textarea {
         height: 300px; /* Default height */
     }
+    
     @media (min-width: 768px) {
         .output-section textarea {
             height: 400px; /* Larger height for medium screens and above */
         }
     }
+    
     @media (min-width: 992px) {
         .output-section textarea {
             height: 500px; /* Even larger height for large screens */
         }
-    }
-    /* Copy button styling */
-    .copy-button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #007bff;
-        padding: 0;
-        margin-left: 10px;
-    }
-    .copy-button:hover {
-        color: #0056b3;
     }
 </style>
 {% endblock %}

@@ -14,17 +14,18 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            background-color: #F8FAFC; /* Very light gray background */
+            color: #1E293B; /* Dark blue-gray text */
         }
         .navbar {
-            background-color: #007bff;
+            background: linear-gradient(90deg, #1E3A8A, #6D28D9); /* Deep blue to purple gradient */
         }
         .navbar-brand, .navbar-nav .nav-link {
-            color: #fff !important;
+            color: #FFFFFF !important; /* White text for navbar */
         }
         .footer {
-            background-color: #007bff;
-            color: #fff;
+            background: linear-gradient(90deg, #1E3A8A, #6D28D9); /* Deep blue to purple gradient */
+            color: #FFFFFF; /* White text */
             text-align: center;
             padding: 10px 0;
             position: fixed;
@@ -34,6 +35,39 @@
         .content {
             padding: 20px;
         }
+        .btn-primary {
+            background: linear-gradient(90deg, #1E3A8A, #6D28D9); /* Deep blue to purple gradient */
+            border: none;
+            color: #FFFFFF; /* White text */
+            font-weight: bold;
+            transition: background 0.3s ease; /* Smooth hover transition */
+        }
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #6D28D9, #1E3A8A); /* Reverse gradient on hover */
+        }
+        .card {
+            border: 1px solid #E2E8F0; /* Light gray border */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        .card-title {
+            color: #1E293B; /* Dark blue-gray text */
+        }
+        .card-text {
+            color: #4B5563; /* Medium gray text */
+        }
+        .copy-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #4F46E5; /* Vibrant indigo */
+            padding: 0;
+            margin-left: 10px;
+            transition: color 0.3s ease; /* Smooth hover transition */
+        }
+        .copy-button:hover {
+            color: #6D28D9; /* Deep purple on hover */
+        }
     </style>
     {% block extra_css %}{% endblock %}
 </head>
@@ -41,7 +75,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">My Website</a>
+            <a class="navbar-brand" href="/">Utils Apps</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -68,7 +102,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        &copy; 2025 My Website. All rights reserved.
+        &copy; 2025 Utils Apps. All rights reserved.
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
